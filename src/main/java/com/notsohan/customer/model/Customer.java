@@ -20,10 +20,6 @@ import javax.validation.constraints.NotBlank;
 public class Customer {
 
     @Id
-    @SequenceGenerator(
-            name = "customer_sequence",
-            allocationSize = 1
-    )
     @Column(name = "id")
     private Long custId;
     @NotBlank(message = "Name must be not empty!")
