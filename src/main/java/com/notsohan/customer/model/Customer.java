@@ -2,14 +2,21 @@ package com.notsohan.customer.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import java.time.LocalDate;
 
 @Entity
 @Table
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode
 public class Customer {
 
     @Id
@@ -32,21 +39,10 @@ public class Customer {
     @NotBlank(message = "Password must be not empty!")
     private String pass;
 
-
-    public Customer(Long custId, String cusName, String cusEmail, String pass) {
-        this.custId = custId;
-        this.cusName = cusName;
-        this.cusEmail = cusEmail;
-        this.pass = pass;
-    }
-
     public Customer(String cusName, String cusEmail, String pass) {
         this.cusName = cusName;
         this.cusEmail = cusEmail;
         this.pass = pass;
-    }
-
-    public Customer() {
     }
 
     public Long getCustId() {
@@ -80,15 +76,5 @@ public class Customer {
 
     public void setPass(String pass) {
         this.pass = pass;
-    }
-
-    @Override
-    public String toString() {
-        return "Customer{" +
-                "custId=" + custId +
-                ", cusName='" + cusName + '\'' +
-                ", cusEmail='" + cusEmail + '\'' +
-                ", pass=" + pass +
-                '}';
     }
 }

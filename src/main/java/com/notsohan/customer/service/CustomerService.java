@@ -3,21 +3,17 @@ package com.notsohan.customer.service;
 import com.notsohan.customer.exception.NotFoundException;
 import com.notsohan.customer.model.Customer;
 import com.notsohan.customer.model.CustomerRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Objects;
 
 @Service
+@AllArgsConstructor
 public class CustomerService {
 
     private final CustomerRepository customerRepository;
-
-    @Autowired
-    public CustomerService(CustomerRepository customerRepository){
-        this.customerRepository = customerRepository;
-    }
 
     public Customer saveCustomer(Customer customer) {
         return customerRepository.save(customer);

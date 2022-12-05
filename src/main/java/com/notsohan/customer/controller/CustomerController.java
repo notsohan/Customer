@@ -3,7 +3,7 @@ package com.notsohan.customer.controller;
 
 import com.notsohan.customer.model.Customer;
 import com.notsohan.customer.service.CustomerService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -11,14 +11,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path = "api/v1")
+@AllArgsConstructor
 public class CustomerController {
 
     private final CustomerService customerService;
-
-    @Autowired
-    public CustomerController(CustomerService customerService){
-        this.customerService = customerService;
-    }
 
     @PostMapping("list")
     public Customer saveCustomer(@Valid @RequestBody Customer customer) {
