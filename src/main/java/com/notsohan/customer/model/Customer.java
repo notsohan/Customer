@@ -22,22 +22,21 @@ public class Customer {
     @Id
     @SequenceGenerator(
             name = "customer_sequence",
-            sequenceName = "customer_sequence",
             allocationSize = 1
     )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "customer_sequence"
-    )
+    @Column(name = "id")
     private Long custId;
     @NotBlank(message = "Name must be not empty!")
+    @Column(name = "name")
     private String cusName;
-    @NotBlank(message = "Email must be not empty!")
-    @Email
-    private String cusEmail;
     @JsonProperty(access = JsonProperty.Access.READ_WRITE)
     @NotBlank(message = "Password must be not empty!")
+    @Column(name = "password")
     private String pass;
+    @NotBlank(message = "Email must be not empty!")
+    @Email
+    @Column(name = "email")
+    private String cusEmail;
 
     public Customer(String cusName, String cusEmail, String pass) {
         this.cusName = cusName;
