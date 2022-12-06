@@ -57,4 +57,8 @@ public class CustomerService {
     public Customer getCustByName(String cusName) {
         return customerRepository.findByCusName(cusName);
     }
+
+    public String getCount() {
+        return "The amount of customer is: " + customerRepository.count();
+    }
 }

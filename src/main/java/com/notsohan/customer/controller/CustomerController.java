@@ -21,6 +21,10 @@ public class CustomerController {
         return customerService.saveCustomer(customer);
     }
 
+    @GetMapping("count")
+    public String getCount(){
+        return customerService.getCount();
+    }
     @GetMapping("list")
     public List<Customer> getCustomers(){
         return customerService.getCustomers();
